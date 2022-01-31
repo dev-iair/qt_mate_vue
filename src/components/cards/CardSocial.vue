@@ -2,7 +2,7 @@
   <q-card class="bg-transparent no-shadow no-border">
     <q-card-section class="q-pa-none">
       <div class="row q-col-gutter-sm ">
-        <div v-for="(item, index) in items" :key="index" class="col-md-3 col-sm-12 col-xs-12">
+        <div v-for="(item, index) in items" :key="index" class="col-md-6 col-sm-12 col-xs-12">
           <q-item :style="`background-color: ${item.color1}`" class="q-pa-none">
             <q-item-section v-if="icon_position === 'left'" side :style="`background-color: ${item.color2}`"
                             class=" q-pa-lg q-mr-none text-white">
@@ -24,9 +24,9 @@
 
 <script>
 import {defineComponent} from 'vue'
+import axios from 'axios'
 
 export default defineComponent({
-  name: "CardSocial",
   props: {
     icon_position: {
       required: false,
@@ -35,33 +35,40 @@ export default defineComponent({
   },
   computed: {
     items: function () {
+      let verse = '';
+      axios.get('todayVerse')
+        .then(res => {
+          verse = res.data
+          console.log(verse)
+        })
+      console.log(verse)
       return this.icon_position === "left"
         ? [
           {
-            title: "My Account",
-            icon: "person",
-            value: "200",
+            title: "오늘의 말씀",
+            icon: "book",
+            value: verse,
             color1: "#5064b5",
             color2: "#3e51b5"
           },
           {
-            title: "Followers",
-            icon: "fab fa-twitter",
-            value: "500",
+            title: "오늘 큐티 적용",
+            icon: "done",
+            value: "요한복음 재밌다",
             color1: "#f37169",
             color2: "#f34636"
           },
           {
-            title: "Connections",
-            icon: "fab fa-google",
-            value: "50",
+            title: "나의 기도제목",
+            icon: "favorite",
+            value: "큐티를 꾸준히",
             color1: "#ea6a7f",
             color2: "#ea4b64"
           },
           {
-            title: "Website Visits",
+            title: "이번주 큐티",
             icon: "bar_chart",
-            value: "1020",
+            value: "5일 중 4번",
             color1: "#a270b1",
             color2: "#9f52b1"
           }
