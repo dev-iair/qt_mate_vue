@@ -58,10 +58,10 @@ export default defineComponent({
         }, {"barWidth": "50%", "type": "bar", "itemStyle": {"normal": {"color": "#ffffff"}}}],
         "dataset": {
             "source": [{"label": "21.48", "max": 6, "횟수": 3}, {
-                "label": "21.50",
+                "label": "21.49",
                 "max": 6,
                 "횟수": 4
-            }, {"label": "21.49", "max": 6, "횟수": 3}, {
+            }, {"label": "21.50", "max": 6, "횟수": 3}, {
                 "label": "21.51",
                 "max": 6,
                 "횟수": 4
