@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import {defineComponent,defineAsyncComponent, reactive} from 'vue'
+import {reactive} from 'vue'
 import { axios } from 'src/boot/axios'
 
 const data = reactive({
