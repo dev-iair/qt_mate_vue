@@ -19,6 +19,7 @@ const routes = [
       {path: '/Directory', component: () => import('pages/Directory.vue')},
       {path: '/Footer', component: () => import('pages/Footer.vue')},
       {path: '/CardHeader', component: () => import('pages/CardHeader.vue')},
+      {path: '/qt', component: () => import('pages/qt.vue')},
 
       // Not completed yet
       // {path: '/Taskboard', component: () => import('pages/TaskBoard.vue')},

@@ -2,32 +2,31 @@
   <q-card>
     <q-card-section>
       <div class="text-h6 text-grey-8">
-        Our Changing Planet
+        {{ data.title }}
       </div>
     </q-card-section>
     <q-separator/>
     <q-card-section>
-      {{ text }}
+      {{ data.text }}
     </q-card-section>
-    <q-card-actions align="left">
-      <q-btn label="Go Somewhere" class="text-capitalize q-ma-sm" color="indigo-7"/>
-    </q-card-actions>
   </q-card>
 </template>
 
-<script>
-import {defineComponent} from 'vue';
+<script setup>
+import {defineComponent,defineAsyncComponent, reactive} from 'vue'
+import { axios } from 'src/boot/axios'
 
-export default defineComponent({
-  name: "BasicCard",
-  setup() {
-    return {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }
-  }
+const data = reactive({
+  title: String,
+  text: String,
 })
+
+axios.get('getDashboard').then(
+  function(res){
+    console.log(res)
+    data.title = '안녕안녕'
+    data.text = '하이하이'
+    console.log(data)
+  })
+
 </script>
-
-<style scoped>
-
-</style>
